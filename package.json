@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo app.js",
+    "dev": "budo app.js",
+    "build": "browserify app.js > bundle.js",
+    "start": "serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,10 +16,12 @@
     "delay": "^2.0.0",
     "promise-map-limit": "^1.0.0",
     "qs-stringify": "^1.1.0",
+    "serve": "^6.4.9",
     "sheetify": "^7.1.0",
     "uppy": "^0.22.2"
   },
   "devDependencies": {
+    "browserify": "^15.2.0",
     "budo": "^11.1.0"
   },
   "browserify": {
