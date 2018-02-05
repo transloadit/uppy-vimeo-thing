@@ -1,0 +1,28 @@
+{
+  "name": "uppy-vimeo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "delay": "^2.0.0",
+    "promise-map-limit": "^1.0.0",
+    "qs-stringify": "^1.1.0",
+    "sheetify": "^7.1.0",
+    "uppy": "^0.22.2"
+  },
+  "devDependencies": {
+    "budo": "^11.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "sheetify"
+    ]
+  }
+}

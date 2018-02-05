@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vimeo redirect</title>
+  </head>
+  <body>
+    Login successful. <a onclick="close()">Close this window</a>
+    <script>
+      // Notify the Vimeo plugin.
+      const result = new URLSearchParams(location.hash.replace(/^#/, ''))
+      localStorage[result.get('state')] = JSON.stringify({
+        token: result.get('access_token'),
+        type: result.get('token_type'),
+        scopes: result.get('scope').split(' '),
+        expires: result.get('expires_in')
+      })
+      window.close()
+    </script>
+  </body>
+</html>
