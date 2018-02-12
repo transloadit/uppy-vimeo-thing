@@ -34,7 +34,7 @@ class Vimeo extends Plugin {
 
   async authorize () {
     const self = this
-    const { clientID } = this.opts
+    const { clientID, redirectUrl } = this.opts
     if (this.authorization && this.authorization.expiration < Date.now()) {
       return this.authorization
     }
@@ -45,6 +45,7 @@ class Vimeo extends Plugin {
       const query = stringify({
         client_id: clientID,
         response_type: 'token',
+        redirect_uri: redirectUrl,
         state: localStorageKey,
         scope: [
           'upload',
@@ -109,7 +110,8 @@ class Vimeo extends Plugin {
             size: file.size
           },
 
-          name: file.meta.name,
+          name: file.meta.name.replace(/\.\w+$/, ''),
+          description: file.meta.description,
           privacy: {
             view: 'nobody'
           }
@@ -136,7 +138,7 @@ class Vimeo extends Plugin {
   }
 
   async afterUpload (fileIDs) {
-    const { accessToken } = this.authorization()
+    const { accessToken } = this.authorization
 
     fileIDs.forEach((fileID) => {
       const file = this.uppy.getFile(fileID)

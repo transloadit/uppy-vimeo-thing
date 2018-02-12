@@ -11,11 +11,14 @@ if (typeof window !== 'undefined') {
 
   uppy.use(Tus)
   uppy.use(Vimeo, {
-    clientID: 'a7c30cc8ece39349ea055bf61bd51426fe2c50ef'
+    clientID: 'a7c30cc8ece39349ea055bf61bd51426fe2c50ef',
+    redirectUrl: `${location.origin}/redirect.html`
   })
   uppy.use(Dashboard, {
     inline: true,
-    metaFields: []
+    metaFields: [
+      { id: 'description', name: 'Description', placeholder: 'My cool video' }
+    ]
   })
 
   uppy.run()
