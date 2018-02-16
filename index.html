@@ -2,9 +2,58 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>budo</title>
+    <title>Uppy &rsaquo; tus &rsaquo; Vimeo example</title>
   </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >
   <body>
+    <h1>Uppy &rsaquo; tus &rsaquo; Vimeo example</h1>
+    <div class="row">
+      <div class="six columns">
+        <p>
+          Vimeo
+          <a href="https://medium.com/vimeo-engineering-blog/introducing-the-new-vimeo-upload-api-3e208a2da760">supports</a> tus uploads</li> and Uppy
+          <a href="https://uppy.io/docs/tus/">supports</a> tus uploads so we figured it should be possible to upload videos to Vimeo with the next open source file uploader
+          for web browsers.
+          <br /> 
+        </p>
+
+        <label for="vimeoClientId">Your Vimeo Client ID</label>
+        <input class="u-full-width" value="a7c30cc8ece39349ea055bf61bd51426fe2c50ef" type="email" placeholder="Your Vimeo Client ID" id="vimeoClientId">
+        <p>
+          You can get a Client ID <a href="https://developer.vimeo.com/api/start">here</a>.
+        </p>
+
+        <div id="dashboard"></div>
+      </div>
+    </div>
+
+    <p>
+      <hr />
+      With 💟 by <a href="https://transloadit.com">Transloadit</a>'s <a href="https://twitter.com/goto-bus-stop">@goto-bus-stop</a> &amp; <a href="https://twitter.com/kvz">@kvz</a>. <br />
+      Code available on <a href="https://github.com/transloadit/uppy-vimeo-thing/">GitHub</a>
+    </p>
     <script src="bundle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('#vimeoClientId').onchange = changeEventHandler;
+      }, false);
+
+      function changeEventHandler (event) {
+        // You can use “this” to refer to the selected element.
+        if (!event.target.value) {
+          return
+        }
+        
+        localStorage.setItem('vimeoClientId', event.target.value)
+
+        window.uppy.use(Uppy.Vimeo, {
+          clientID: event.target.value,
+          redirectUrl: `${location.origin}/redirect.html`
+        })
+        window.uppy.run()
+      }
+
+      document.querySelector('#vimeoClientId').value = localStorage.getItem('vimeoClientId')
+    </script>
   </body>
 </html>

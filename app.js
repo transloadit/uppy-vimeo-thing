@@ -7,7 +7,7 @@ const Vimeo = require('./Vimeo')
 css('uppy/dist/uppy.css')
 
 if (typeof window !== 'undefined') {
-  const uppy = Uppy({ autoProceed: false })
+  window.uppy = Uppy({ autoProceed: false })
 
   uppy.use(Tus)
   uppy.use(Vimeo, {
@@ -15,6 +15,7 @@ if (typeof window !== 'undefined') {
     redirectUrl: `${location.origin}/redirect.html`
   })
   uppy.use(Dashboard, {
+    target: '#dashboard',
     inline: true,
     metaFields: [
       { id: 'description', name: 'Description', placeholder: 'My cool video' }
