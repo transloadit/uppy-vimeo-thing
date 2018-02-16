@@ -53,7 +53,9 @@
         window.uppy.run()
       }
 
-      document.querySelector('#vimeoClientId').value = localStorage.getItem('vimeoClientId')
+      if (localStorage.getItem('vimeoClientId')) {
+        document.querySelector('#vimeoClientId').value = localStorage.getItem('vimeoClientId')
+      }
     </script>
   </body>
 </html>
