@@ -1946,6 +1946,10 @@ json-stable-stringify@~0.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
+json3@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
+
 jsonfile@^2.1.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-2.4.0.tgz#3736a2b428b87bbda0cc83b53fa3d633a35c2ae8"
@@ -3626,15 +3630,16 @@ update-notifier@^2.3.0:
     semver-diff "^2.0.0"
     xdg-basedir "^3.0.0"
 
-uppy@^0.22.2:
-  version "0.22.5"
-  resolved "https://registry.yarnpkg.com/uppy/-/uppy-0.22.5.tgz#caba5ed24cbdbf5b061ba40f6da1c7a02fb1aa0a"
+uppy@0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/uppy/-/uppy-0.23.0.tgz#f4acc95aa1c94c0f8ac6fd5b11b87386dc48c73a"
   dependencies:
     classnames "^2.2.5"
     cuid "^2.0.2"
     drag-drop "2.13.2"
     es6-promise "^4.2.2"
     get-form-data "^2.0.0"
+    json3 "^3.3.2"
     lodash.throttle "4.1.1"
     mime-match "^1.0.2"
     namespace-emitter "^2.0.0"
