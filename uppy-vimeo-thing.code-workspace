@@ -6,6 +6,7 @@
 	],
 	"settings": {
 		"files.exclude": {
+			"node_modules/": true,
 			"bundle.js": true,
 			"yarn.lock": true
 		},		
