@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "budo app.js",
     "build": "browserify app.js > bundle.js",
+    "watch": "watchify app.js -o bundle.js",
     "start": "serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,7 +24,8 @@
   },
   "devDependencies": {
     "browserify": "^15.2.0",
-    "budo": "^11.1.0"
+    "budo": "^11.1.0",
+    "watchify": "3.10.0"
   },
   "browserify": {
     "transform": [
