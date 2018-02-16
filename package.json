@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "delay": "^2.0.0",
+    "fakefile": "0.0.9",
     "promise-map-limit": "^1.0.0",
     "qs-stringify": "^1.1.0",
     "serve": "^6.4.9",
