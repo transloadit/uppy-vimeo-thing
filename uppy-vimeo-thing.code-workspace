@@ -4,5 +4,10 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.exclude": {
+			"bundle.js": true,
+			"yarn.lock": true
+		},		
+	}
 }
