@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
 
   uppy.use(Tus)
   uppy.use(Dashboard, {
-    target: '#dashboard',
+    target: 'body',
     inline: true,
     metaFields: [
       { id: 'description', name: 'Description', placeholder: 'My cool video' }
@@ -26,18 +26,15 @@ if (typeof window !== 'undefined') {
 
   uppy.run()
 
-  const clientIdInput = document.querySelector('#vimeoClientId')
-  clientIdInput.value = localStorage.vimeoClientId
-  clientIdInput.addEventListener('blur', (event) => {
-    if (event.target.value) {
-      setClientID(event.target.value)
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'vimeoClientId') {
+      setClientID(event.newValue)
     }
-  }, false)
+  })
 
   window.uppy = uppy
 
   function setClientID (clientID) {
-    localStorage.vimeoClientId = clientID
     const vimeoPlugin = uppy.getPlugin('Vimeo')
     if (vimeoPlugin) uppy.removePlugin(vimeoPlugin)
     uppy.use(Vimeo, {

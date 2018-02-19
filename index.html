@@ -23,7 +23,7 @@
           You can get a Client ID <a href="https://developer.vimeo.com/api/start">here</a>.
         </p>
 
-        <div id="dashboard"></div>
+        <iframe src="uppy.html" frameborder="0" width="100%"></iframe>
       </div>
     </div>
 
@@ -32,6 +32,27 @@
       With 💟 by <a href="https://transloadit.com">Transloadit</a>'s <a href="https://twitter.com/goto-bus-stop">@goto-bus-stop</a> &amp; <a href="https://twitter.com/kvz">@kvz</a>. <br />
       Code available on <a href="https://github.com/transloadit/uppy-vimeo-thing/">GitHub</a>
     </p>
-    <script src="bundle.js"></script>
+    <script defer>
+      const clientIdInput = document.querySelector('#vimeoClientId')
+      const frame = document.querySelector('iframe')
+      clientIdInput.value = localStorage.vimeoClientId
+      clientIdInput.addEventListener('blur', (event) => {
+        if (event.target.value) {
+          localStorage.vimeoClientId = event.target.value
+        }
+      }, false)
+      if (!localStorage.vimeoClientId) {
+        localStorage.vimeoClientId = 'a7c30cc8ece39349ea055bf61bd51426fe2c50ef'
+      } else {
+        clientIdInput.value = localStorage.vimeoClientId
+      }
+
+      frame.contentWindow.addEventListener('DOMContentLoaded', fixIframe)
+      function fixIframe () {
+        if (frame && frame.contentDocument) {
+          frame.style.height = `${frame.contentDocument.body.scrollHeight}px`
+        }
+      }
+    </script>
   </body>
 </html>
