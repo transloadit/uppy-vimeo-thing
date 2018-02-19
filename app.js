@@ -24,7 +24,7 @@ if (typeof window !== 'undefined') {
 
   const clientIdInput = document.querySelector('#vimeoClientId')
   clientIdInput.value = localStorage.vimeoClientId
-  clientIdInput.addEventListener('change', (event) => {
+  clientIdInput.addEventListener('blur', (event) => {
     if (event.target.value) {
       setClientID(event.target.value)
     }
