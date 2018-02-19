@@ -130,6 +130,12 @@ class Vimeo extends Plugin {
           // NOTE: This is uploadUrl instead of endpoint, different from what you might expect;
           // Vimeo pre-creates the Tus upload.
           uploadUrl: upload.upload_link
+        }),
+        // HACK because the Tus plugin doesn't send upload_link yet
+        remote: Object.assign({}, file.remote, {
+          body: Object.assign({}, file.remote.body, {
+            uploadUrl: upload.upload_link
+          })
         })
       })
 
