@@ -2,6 +2,8 @@ const css = require('sheetify')
 const Uppy = require('uppy/lib/core') // require('uppy') or require('@uppy/core')
 const Tus = require('uppy/lib/plugins/Tus') // require('@uppy/tus')
 const Dashboard = require('uppy/lib/plugins/Dashboard') // require('@uppy/dashboard')
+const Webcam = require('uppy/lib/plugins/Webcam') // require('@uppy/dashboard')
+const Instagram = require('uppy/lib/plugins/Instagram') // require('@uppy/dashboard')
 const Vimeo = require('./Vimeo')
 
 css('uppy/dist/uppy.css')
@@ -21,6 +23,8 @@ if (typeof window !== 'undefined') {
       { id: 'description', name: 'Description', placeholder: 'My cool video' }
     ]
   })
+  .use(Instagram, { target: Dashboard, host: 'https://api2.transloadit.com/uppy-server' })
+  .use(Webcam, { target: Dashboard })
 
   uppy.run()
 }
