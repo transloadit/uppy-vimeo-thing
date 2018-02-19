@@ -33,29 +33,5 @@
       Code available on <a href="https://github.com/transloadit/uppy-vimeo-thing/">GitHub</a>
     </p>
     <script src="bundle.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('#vimeoClientId').onchange = changeEventHandler;
-      }, false);
-
-      function changeEventHandler (event) {
-        // You can use “this” to refer to the selected element.
-        if (!event.target.value) {
-          return
-        }
-        
-        localStorage.setItem('vimeoClientId', event.target.value)
-
-        window.uppy.use(Uppy.Vimeo, {
-          clientID: event.target.value,
-          redirectUrl: `${location.origin}/redirect.html`
-        })
-        window.uppy.run()
-      }
-
-      if (localStorage.getItem('vimeoClientId')) {
-        document.querySelector('#vimeoClientId').value = localStorage.getItem('vimeoClientId')
-      }
-    </script>
   </body>
 </html>
