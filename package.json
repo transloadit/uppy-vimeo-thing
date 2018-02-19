@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "budo app.js",
+    "dev": "budo app.js:bundle.js",
     "build": "browserify app.js > bundle.js",
     "watch": "watchify app.js -o bundle.js",
     "start": "serve .",
