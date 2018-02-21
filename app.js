@@ -13,10 +13,11 @@ if (typeof window !== 'undefined') {
 
   uppy.use(Tus)
   uppy.use(Dashboard, {
-    target: 'body',
+    target: '#vimeo-uploader',
     inline: true,
     metaFields: [
-      { id: 'description', name: 'Description', placeholder: 'My cool video' }
+      { id: 'description', name: 'Description', placeholder: 'My cool video' },
+      { id: 'privacy', name: 'Video privacy', placeholder: 'Who can see this video' }
     ]
   })
   .use(GoogleDrive, { target: Dashboard, host: 'https://server.uppy.io' })
@@ -30,6 +31,14 @@ if (typeof window !== 'undefined') {
     if (event.key === 'vimeoClientId') {
       setClientID(event.newValue)
     }
+  })
+  
+  // Set privacy meta acording to <select id="vimeo-privacy"> element
+  const privacySelect = document.getElementById('vimeo-privacy')
+  uppy.setMeta({ privacy: privacySelect.value })
+  privacySelect.addEventListener('change', (ev) => {
+    console.log(ev.target.value)
+    uppy.setMeta({ privacy: ev.target.value })
   })
 
   window.uppy = uppy
