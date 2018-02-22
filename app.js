@@ -9,12 +9,21 @@ const Vimeo = require('./Vimeo')
 css('uppy/dist/uppy.css')
 
 if (typeof window !== 'undefined') {
-  const uppy = Uppy({ autoProceed: false })
+  const uppy = Uppy({ 
+    autoProceed: false,
+    restrictions: {
+      maxFileSize: 5000000000,
+      maxNumberOfFiles: 3,
+      minNumberOfFiles: 1,
+      allowedFileTypes: ['video/*']
+    }    
+  })
 
   uppy.use(Tus)
   uppy.use(Dashboard, {
     target: '#vimeo-uploader',
     inline: true,
+    note: 'Video only, 1–3 files, up to 5GB',
     metaFields: [
       { id: 'description', name: 'Description', placeholder: 'My cool video' },
       { id: 'privacy', name: 'Video privacy', placeholder: 'Who can see this video' }
