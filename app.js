@@ -4,6 +4,7 @@ const Tus = require('uppy/lib/plugins/Tus')
 const Dashboard = require('uppy/lib/plugins/Dashboard')
 const Webcam = require('uppy/lib/plugins/Webcam')
 const GoogleDrive = require('uppy/lib/plugins/GoogleDrive')
+const Url = require('uppy/lib/plugins/Url')
 const Vimeo = require('./Vimeo')
 
 css('uppy/dist/uppy.css')
@@ -31,6 +32,7 @@ if (typeof window !== 'undefined') {
   })
   .use(GoogleDrive, { target: Dashboard, host: 'https://server.uppy.io' })
   .use(Webcam, { target: Dashboard })
+  .use(Url, { target: Dashboard, host: 'https://server.uppy.io' })
 
   setClientID(localStorage.vimeoClientId || 'a7c30cc8ece39349ea055bf61bd51426fe2c50ef')
 
