@@ -10,14 +10,14 @@ const Vimeo = require('./Vimeo')
 css('uppy/dist/uppy.css')
 
 if (typeof window !== 'undefined') {
-  const uppy = Uppy({ 
+  const uppy = Uppy({
     autoProceed: false,
     restrictions: {
       maxFileSize: 5000000000,
       maxNumberOfFiles: 3,
       minNumberOfFiles: 1,
       allowedFileTypes: ['video/*']
-    }    
+    }
   })
 
   uppy.use(Tus)
@@ -43,7 +43,7 @@ if (typeof window !== 'undefined') {
       setClientID(event.newValue)
     }
   })
-  
+
   // Set privacy meta acording to <select id="vimeo-privacy"> element
   const privacySelect = document.getElementById('vimeo-privacy')
   uppy.setMeta({ privacy: privacySelect.value })
