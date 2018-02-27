@@ -25,6 +25,7 @@ if (typeof window !== 'undefined') {
     target: '#vimeo-uploader',
     inline: true,
     note: 'Video only, 1–3 files, up to 5GB',
+    maxHeight: 500,
     metaFields: [
       { id: 'description', name: 'Description', placeholder: 'My cool video' },
       { id: 'privacy', name: 'Video privacy', placeholder: 'Who can see this video' }
